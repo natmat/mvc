@@ -1,5 +1,8 @@
 package mvcexample;
 
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -21,9 +24,17 @@ public class MvcExample {
 		frame.getContentPane().add(view.getMainPanel());
 		frame.setJMenuBar(menuBar.getMenuBar());
 		frame.pack();
-		frame.setLocationByPlatform(true);
+//		frame.setLocationByPlatform(true);
+		frame.setLocation(getCentreOfScreen());
 		frame.setVisible(true);
 
+	}
+	
+	private static Point getCentreOfScreen() {
+		Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+		Point p = new Point((int)(size.getWidth()/2), (int)(size.getHeight()/2));
+		return(p);
+		
 	}
 
 	public static void main(String[] args) {
